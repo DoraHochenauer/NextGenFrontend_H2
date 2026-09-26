@@ -1,6 +1,6 @@
 # Vue 3 + TypeScript + Vite
 
-Start mit:
+Start von working directory ./h2:
 
 npm install
 
