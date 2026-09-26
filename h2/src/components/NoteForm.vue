@@ -2,7 +2,7 @@
 
 import { ref } from 'vue';
 import { type Ref } from 'vue';
-import { getTagColor } from '../composables/getTagColor.ts';
+import TagList from './TagList.vue';
 
 //import { useLocalStorage } from '../composables/useLocalStorage.js';
 
@@ -21,8 +21,6 @@ const emit = defineEmits<{
     add: [title: string, content: string, tags: string[]]
 }>()
 
-
-
 function AddTag(tag: string) {
     tags.value.push(tag);
     currentTag = ref('');
@@ -40,13 +38,7 @@ function AddTag(tag: string) {
 
 
         <button @click="AddTag(currentTag)"> Tag hinzufügen </button>
-        <div class="tag-container">
-            <div v-for="tag in tags">
-                <span class="tag" :style="{ backgroundColor: getTagColor(tag) }">{{ tag }}</span>
-
-
-            </div>
-        </div>
+        <TagList :tags="tags" />
         <button @click="$emit('add', title, content, tags)"> Notiz hinzufügen </button>
     </div>
 </template>

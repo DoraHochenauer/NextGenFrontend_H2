@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import BaseCard from './BaseCard.vue'
 import { type Note } from '../types/notes.ts'
+import TagList from './TagList.vue';
 
 
-import { getTagColor } from '../composables/getTagColor.ts';
 
 
 const { note } = defineProps<{
@@ -28,13 +28,9 @@ const emit = defineEmits<{
             </template>
             <p>{{ note.content }}</p>
         </BaseCard>
-        <div class="tag-container">
 
-            <div v-for="tag in note.tags">
-                <span class="tag" :style="{ backgroundColor: getTagColor(tag) }">{{ tag }}</span>
 
-            </div>
-        </div>
+        <TagList :tags="note.tags" />
 
         <button @click="$emit('delete', note.id)">Löschen</button>
 

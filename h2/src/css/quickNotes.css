@@ -1,3 +1,7 @@
+h1{
+    font-size: xx-large;
+}
+
 .card-wrapper {
 
     border-style: solid;
@@ -11,6 +15,11 @@
     margin: 1%;
 
     flex: 1;
+}
+
+
+.card-body{
+    min-height: 200px;
 }
 
 .note-board {
